@@ -9,8 +9,11 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 
 function App() {
+  // Use basename only in production (GitHub Pages)
+  const basename = import.meta.env.PROD ? '/adit-rahman' : '';
+  
   return (
-    <Router>
+    <Router basename={basename}>
       <Routes>
         <Route path="/" element={
           <Terminal>

@@ -180,54 +180,57 @@ const Terminal: React.FC<TerminalProps> = ({ children }) => {
         <div className="h-full bg-black border-4 border-gray-600 rounded-lg relative overflow-hidden">
           {/* Screen Content */}
           <div className="h-full p-6 overflow-hidden">
-            {/* Terminal Content */}
-            <div className="h-full flex flex-col">
-              {/* Terminal Output Area */}
-              <div 
-                ref={terminalRef}
-                className="flex-1 overflow-y-auto font-mono text-terminal-green leading-tight"
-                style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}
-              >
-                {history.map((entry, index) => (
-                  <div key={index} className={`${
-                    entry.type === 'command' ? 'text-terminal-green font-bold' :
-                    entry.type === 'error' ? 'text-red-400' : 
-                    entry.type === 'boot' ? 'text-terminal-green' :
-                    'text-terminal-green/90'
-                  } mb-1`}>
-                    {entry.type === 'command' && '> '}{entry.content}
-                  </div>
-                ))}
+            {/* Terminal Content - Two Panel Layout */}
+            <div className="h-full flex flex-col lg:flex-row">
+              {/* Left Panel - Terminal Interface */}
+              <div className="flex-1 flex flex-col lg:mr-4 mb-4 lg:mb-0">
+                {/* Terminal Output Area */}
+                <div 
+                  ref={terminalRef}
+                  className="flex-1 overflow-y-auto font-mono text-terminal-green leading-tight"
+                  style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}
+                >
+                  {history.map((entry, index) => (
+                    <div key={index} className={`${
+                      entry.type === 'command' ? 'text-terminal-green font-bold' :
+                      entry.type === 'error' ? 'text-red-400' : 
+                      entry.type === 'boot' ? 'text-terminal-green' :
+                      'text-terminal-green/90'
+                    } mb-1`}>
+                      {entry.type === 'command' && '> '}{entry.content}
+                    </div>
+                  ))}
+                </div>
                 
-                {/* Content Panel for Navigation */}
-                {!isBooting && children && (
-                  <div className="mt-4 border-t border-terminal-green/30 pt-4">
-                    <div className="text-terminal-green/80 text-sm mb-2">
-                      === {currentPath.toUpperCase()} SECTION ===
-                    </div>
-                    <div className="text-terminal-green/90">
-                      {children}
-                    </div>
+                {/* Input Line */}
+                {!isBooting && (
+                  <div className="flex-shrink-0 mt-2">
+                    <form onSubmit={handleSubmit} className="flex items-center">
+                      <span className="text-terminal-green mr-1">&gt;</span>
+                      <input
+                        ref={inputRef}
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        className="flex-1 bg-transparent text-terminal-green outline-none border-none font-mono caret-terminal-green"
+                        style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}
+                      />
+                      <span className="text-terminal-green animate-pulse ml-1">█</span>
+                    </form>
                   </div>
                 )}
               </div>
-              
-              {/* Input Line */}
-              {!isBooting && (
-                <div className="flex-shrink-0 mt-2">
-                  <form onSubmit={handleSubmit} className="flex items-center">
-                    <span className="text-terminal-green mr-1">&gt;</span>
-                    <input
-                      ref={inputRef}
-                      type="text"
-                      value={input}
-                      onChange={(e) => setInput(e.target.value)}
-                      onKeyDown={handleKeyDown}
-                      className="flex-1 bg-transparent text-terminal-green outline-none border-none font-mono caret-terminal-green"
-                      style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}
-                    />
-                    <span className="text-terminal-green animate-pulse ml-1">█</span>
-                  </form>
+
+              {/* Right Panel - Content Sections */}
+              {!isBooting && children && (
+                <div className="flex-1 border-t lg:border-t-0 lg:border-l border-terminal-green/30 pt-4 lg:pt-0 lg:pl-4 overflow-y-auto">
+                  <div className="text-terminal-green/80 text-sm mb-3 border-b border-terminal-green/30 pb-2">
+                    === {currentPath.toUpperCase()} SECTION ===
+                  </div>
+                  <div className="text-terminal-green/90 font-mono leading-tight" style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}>
+                    {children}
+                  </div>
                 </div>
               )}
             </div>

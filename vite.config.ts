@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/adit-rahman/',
+  base: process.env.NODE_ENV === 'production' ? '/adit-rahman/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
