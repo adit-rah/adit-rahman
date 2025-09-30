@@ -61,11 +61,11 @@
       0deg,
       transparent 0px,
       transparent 2px,
-      rgba(0, 255, 65, 0.05) 2px,
-      rgba(0, 255, 65, 0.05) 4px
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px
     );
   pointer-events: none;
-  animation: scanlines-move 0.1s linear infinite;
+  animation: scanlines-move 0.15s linear infinite;
 }
 
 @keyframes scanlines-move {
@@ -73,11 +73,25 @@
   100% { transform: translateY(4px); }
 }
 
+/* Text streaming effect */
+.streaming-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid transparent;
+  animation: typewriter-cursor 1s step-end infinite;
+}
+
+@keyframes typewriter-cursor {
+  0%, 50% { border-color: #00FF41; }
+  51%, 100% { border-color: transparent; }
+}
+
 /* Screen flicker effect */
 .crt-flicker-enhanced {
   animation: 
-    flicker-intensity 0.15s ease-in-out infinite alternate,
-    flicker-slight 4s ease-in-out infinite;
+    flicker-intensity 3s ease-in-out infinite alternate,
+    flicker-slight 8s ease-in-out infinite,
+    flicker-random 12s ease-in-out infinite;
 }
 
 @keyframes flicker-intensity {
@@ -86,16 +100,25 @@
     filter: brightness(1) contrast(1);
   }
   100% { 
-    opacity: 0.98;
-    filter: brightness(1.02) contrast(1.01);
+    opacity: 0.995;
+    filter: brightness(1.005) contrast(1.002);
   }
 }
 
 @keyframes flicker-slight {
   0%, 100% { filter: brightness(1) contrast(1); }
-  25% { filter: brightness(1.01) contrast(1.02); }
-  50% { filter: brightness(0.99) contrast(0.98); }
-  75% { filter: brightness(1.02) contrast(1.01); }
+  20% { filter: brightness(1.002) contrast(1.001); }
+  40% { filter: brightness(0.999) contrast(0.999); }
+  60% { filter: brightness(1.001) contrast(1.002); }
+  80% { filter: brightness(0.998) contrast(0.999); }
+}
+
+@keyframes flicker-random {
+  0%, 90%, 100% { opacity: 1; }
+  91% { opacity: 0.98; }
+  92% { opacity: 1; }
+  93% { opacity: 0.97; }
+  94% { opacity: 1; }
 }
 
 /* Vintage monitor bezel effect */
