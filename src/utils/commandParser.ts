@@ -42,13 +42,13 @@ export const getAvailableCommands = (): Command[] => {
 
 export const formatHelp = (): string => {
   const availableCommands = getAvailableCommands();
-  let help = '\nAVAILABLE COMMANDS:\n\n';
+  let help = '\n>HELP\n\nAVAILABLE TERMINAL COMMANDS:\n\n';
   
   availableCommands.forEach(cmd => {
-    help += `  ${cmd.name.padEnd(12)} - ${cmd.description}\n`;
+    help += `${cmd.name.toUpperCase().padEnd(12)} - ${cmd.description}\n`;
   });
   
-  help += '\nTIP: Type any command name to navigate, or try some easter eggs!\n';
+  help += '\nTYPE COMMAND NAME TO EXECUTE\nENTER "CLEAR" TO CLEAR SCREEN\n';
   return help;
 };
 

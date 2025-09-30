@@ -5,10 +5,10 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'VT323', 'Share Tech Mono', 'Courier New', monospace;
-  line-height: 1.2;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  line-height: 1.4;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 14px;
 
   color-scheme: dark;
   color: #00FF41;
@@ -16,8 +16,8 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
 }
 
 * {
@@ -30,8 +30,9 @@ body {
   min-height: 100vh;
   background-color: #000000;
   color: #00FF41;
-  font-family: 'VT323', 'Share Tech Mono', 'Courier New', monospace;
-  overflow-x: hidden;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  overflow: hidden;
+  letter-spacing: 0.5px;
 }
 
 #root {

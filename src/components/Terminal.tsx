@@ -7,32 +7,81 @@ interface TerminalProps {
 }
 
 interface HistoryEntry {
-  type: 'command' | 'output' | 'error';
+  type: 'command' | 'output' | 'error' | 'boot';
   content: string;
   timestamp: Date;
 }
 
 const Terminal: React.FC<TerminalProps> = ({ children }) => {
   const [input, setInput] = useState('');
-  const [history, setHistory] = useState<HistoryEntry[]>([
-    {
-      type: 'output',
-      content: `VAULT-TEC PERSONAL TERMINAL v2.1.7
-INITIALIZATION COMPLETE
-
-Welcome to the Vault-Tec Personal Information System
-Type "help" for available commands or explore the sections directly.
-
-Ready for input...`,
-      timestamp: new Date()
-    }
-  ]);
+  const [isBooting, setIsBooting] = useState(true);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Boot sequence
+  useEffect(() => {
+    const bootSequence = [
+      'ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL',
+      'ENTER PASSWORD NOW',
+      '',
+      '> Trying Password...',
+      '> Entry Denied',
+      '> Trying Password...',
+      '> Entry Denied', 
+      '> Trying Password...',
+      '> Exact match!',
+      '> Please wait while system loads.',
+      '',
+      'WELCOME TO ROBCO INDUSTRIES (TM) TERMLINK',
+      '',
+      'RobCo Industries - Personal Terminal',
+      '>Set Terminal/Inquiry',
+      '',
+      'Initializing Robco Industries(TM) MF Boot Agent v2.3.0',
+      'RETROS BIOS',
+      'RBIOS-4.02.08.00 52EE5.E7.E8',
+      'Copyright 2201-2203 Robco Ind.',
+      'Uppermem: 64 KB',
+      'Root (5A8)',
+      'Maintenance Mode',
+      '',
+      'RobCo Industries Unified Operating System',
+      'COPYRIGHT 2075-2077 ROBCO INDUSTRIES',
+      '-Server 1-',
+      '',
+      'Personal Information Management System',
+      'Enter command or type HELP for assistance.',
+      ''
+    ];
+
+    let currentIndex = 0;
+    const bootInterval = setInterval(() => {
+      if (currentIndex < bootSequence.length) {
+        setHistory(prev => [...prev, {
+          type: 'boot',
+          content: bootSequence[currentIndex],
+          timestamp: new Date()
+        }]);
+        currentIndex++;
+      } else {
+        setIsBooting(false);
+        clearInterval(bootInterval);
+        // Focus input after boot
+        setTimeout(() => {
+          if (inputRef.current) {
+            inputRef.current.focus();
+          }
+        }, 500);
+      }
+    }, 150);
+
+    return () => clearInterval(bootInterval);
+  }, []);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -119,66 +168,70 @@ Ready for input...`,
   const currentPath = location.pathname === '/' ? 'root' : location.pathname.slice(1);
 
   return (
-    <div className="h-screen bg-terminal-black text-terminal-green font-mono text-lg overflow-hidden scanlines-enhanced crt-flicker-enhanced crt-screen">
-      <div className="h-full flex flex-col p-4">
-        {/* Terminal Header */}
-        <div className="flex-shrink-0 mb-4">
-          <div className="text-terminal-green text-glow-intense text-lg">
-            VAULT-TEC PERSONAL TERMINAL - SESSION ACTIVE
-          </div>
-          <div className="text-terminal-green/70 text-sm">
-            User: DWELLER | Location: {currentPath.toUpperCase()} | Status: ONLINE | Uptime: {Math.floor(Date.now() / 1000)}s
-          </div>
-          <div className="border-b border-terminal-green/30 mt-2 relative">
-            <div className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-transparent via-terminal-green/50 to-transparent opacity-30"></div>
-          </div>
-        </div>
-
-        {/* Content Area */}
-        <div className="flex-1 flex overflow-hidden">
-          {/* Terminal Output */}
-          <div className="flex-1 flex flex-col mr-4">
-            <div 
-              ref={terminalRef}
-              className="flex-1 overflow-y-auto pr-2 space-y-1"
-            >
-              {history.map((entry, index) => (
-                <div key={index} className={`whitespace-pre-wrap ${
-                  entry.type === 'command' ? 'text-terminal-green text-glow command-prompt' :
-                  entry.type === 'error' ? 'text-red-400 text-glow' : 'text-terminal-green/90'
-                }`}>
-                  {entry.content}
-                </div>
-              ))}
-            </div>
-            
-            {/* Input Area */}
-            <form onSubmit={handleSubmit} className="flex-shrink-0 mt-4">
-              <div className="flex items-center">
-                <span className="text-terminal-green text-glow mr-2">
-                  {currentPath}@vault-tec:~$
-                </span>
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  className="flex-1 bg-transparent text-terminal-green text-glow outline-none border-none font-mono"
-                  placeholder="Type a command..."
-                  autoFocus
-                />
-                <span className="text-terminal-green terminal-cursor ml-1">▋</span>
+    <div className="h-screen bg-black text-terminal-green font-mono text-base overflow-hidden relative">
+      {/* CRT Effect Overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="scanlines-enhanced h-full w-full"></div>
+        <div className="crt-flicker-enhanced h-full w-full absolute top-0"></div>
+      </div>
+      
+      {/* Monitor Bezel */}
+      <div className="h-full p-8 bg-gradient-to-b from-gray-800 via-gray-900 to-black">
+        <div className="h-full bg-black border-4 border-gray-600 rounded-lg relative overflow-hidden">
+          {/* Screen Content */}
+          <div className="h-full p-6 overflow-hidden">
+            {/* Terminal Content */}
+            <div className="h-full flex flex-col">
+              {/* Terminal Output Area */}
+              <div 
+                ref={terminalRef}
+                className="flex-1 overflow-y-auto font-mono text-terminal-green leading-tight"
+                style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}
+              >
+                {history.map((entry, index) => (
+                  <div key={index} className={`${
+                    entry.type === 'command' ? 'text-terminal-green font-bold' :
+                    entry.type === 'error' ? 'text-red-400' : 
+                    entry.type === 'boot' ? 'text-terminal-green' :
+                    'text-terminal-green/90'
+                  } mb-1`}>
+                    {entry.type === 'command' && '> '}{entry.content}
+                  </div>
+                ))}
+                
+                {/* Content Panel for Navigation */}
+                {!isBooting && children && (
+                  <div className="mt-4 border-t border-terminal-green/30 pt-4">
+                    <div className="text-terminal-green/80 text-sm mb-2">
+                      === {currentPath.toUpperCase()} SECTION ===
+                    </div>
+                    <div className="text-terminal-green/90">
+                      {children}
+                    </div>
+                  </div>
+                )}
               </div>
-            </form>
-          </div>
-
-          {/* Content Panel */}
-          {children && (
-            <div className="flex-1 border-l border-terminal-green/30 pl-4 overflow-y-auto">
-              {children}
+              
+              {/* Input Line */}
+              {!isBooting && (
+                <div className="flex-shrink-0 mt-2">
+                  <form onSubmit={handleSubmit} className="flex items-center">
+                    <span className="text-terminal-green mr-1">&gt;</span>
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      className="flex-1 bg-transparent text-terminal-green outline-none border-none font-mono caret-terminal-green"
+                      style={{ fontFamily: 'Share Tech Mono, Courier New, monospace' }}
+                    />
+                    <span className="text-terminal-green animate-pulse ml-1">█</span>
+                  </form>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
