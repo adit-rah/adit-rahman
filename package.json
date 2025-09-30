@@ -1,18 +1,24 @@
 {
-  "name": "terminal",
+  "name": "fallout-terminal-website",
   "private": true,
-  "version": "0.0.0",
+  "description": "A retro-futuristic personal portfolio website styled like a Fallout Vault-Tec terminal",
+  "keywords": ["react", "typescript", "portfolio", "terminal", "fallout", "retro", "personal-website"],
+  "author": "Your Name",
+  "license": "MIT",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router": "^7.9.3"
+    "react-router-dom": "^6"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
