@@ -1,50 +1,19 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Terminal from './components/Terminal';
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Resume from './pages/Resume';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
+import VaultTecTerminal from './components/VaultTecTerminal';
 
 function App() {
   // Use basename only in production (GitHub Pages)
   const basename = import.meta.env.PROD ? '/adit-rahman' : '';
-  
+
   return (
     <Router basename={basename}>
       <Routes>
-        <Route path="/" element={
-          <Terminal>
-            <Home />
-          </Terminal>
-        } />
-        <Route path="/about" element={
-          <Terminal>
-            <About />
-          </Terminal>
-        } />
-        <Route path="/projects" element={
-          <Terminal>
-            <Projects />
-          </Terminal>
-        } />
-        <Route path="/resume" element={
-          <Terminal>
-            <Resume />
-          </Terminal>
-        } />
-        <Route path="/blog" element={
-          <Terminal>
-            <Blog />
-          </Terminal>
-        } />
-        <Route path="/contact" element={
-          <Terminal>
-            <Contact />
-          </Terminal>
-        } />
+        <Route path="/" element={<VaultTecTerminal />} />
+        <Route path="/about" element={<VaultTecTerminal />} />
+        <Route path="/projects" element={<VaultTecTerminal />} />
+        <Route path="/resume" element={<VaultTecTerminal />} />
+        <Route path="/blog" element={<VaultTecTerminal />} />
+        <Route path="/contact" element={<VaultTecTerminal />} />
       </Routes>
     </Router>
   );

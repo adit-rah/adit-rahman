@@ -1,0 +1,1024 @@
+/* Vault-Tec Terminal Styles */
+
+/* Import retro fonts */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+/* Color Variables */
+:root {
+  --vault-blue: #1e3a8a;
+  --vault-blue-dark: #1e40af;
+  --vault-blue-light: #3b82f6;
+  --vault-cream: #fef3c7;
+  --vault-cream-dark: #f59e0b;
+  --terminal-green: #00ff41;
+  --terminal-green-dim: #00cc33;
+  --terminal-amber: #ffbf00;
+  --rust-brown: #8b4513;
+  --metal-gray: #6b7280;
+  --metal-dark: #374151;
+  --screen-black: #0a0a0a;
+}
+
+/* Main Terminal Container */
+.vault-tec-terminal {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  overflow: hidden;
+  font-family: 'Share Tech Mono', monospace;
+  position: relative;
+}
+
+/* Terminal Container with Panel */
+.terminal-with-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.terminal-with-panel.panel-open {
+  justify-content: flex-start;
+  transform: translateX(-200px);
+}
+
+/* Terminal Housing */
+.terminal-housing {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(5deg) rotateY(-2deg);
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+@keyframes subtle-float {
+  0%, 100% { transform: rotateX(5deg) rotateY(-2deg) translateY(0px); }
+  50% { transform: rotateX(5deg) rotateY(-2deg) translateY(-3px); }
+}
+
+/* Terminal Top Housing */
+.terminal-top {
+  width: 800px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--vault-blue) 0%, var(--vault-blue-dark) 100%);
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  
+  /* Weathering effects */
+  background-image: 
+    linear-gradient(45deg, transparent 30%, rgba(139, 69, 19, 0.1) 35%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.15) 0%, transparent 30%);
+}
+
+.terminal-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 20%, 
+    transparent 40%, 
+    rgba(255, 255, 255, 0.05) 60%, 
+    transparent 100%);
+  border-radius: inherit;
+}
+
+/* Main Terminal Body */
+.terminal-body {
+  width: 800px;
+  height: 650px;
+  background: linear-gradient(135deg, var(--vault-blue) 0%, var(--vault-blue-dark) 100%);
+  position: relative;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  
+  /* Weathering and wear */
+  background-image: 
+    linear-gradient(45deg, transparent 70%, rgba(139, 69, 19, 0.1) 75%, transparent 80%),
+    radial-gradient(circle at 10% 10%, rgba(139, 69, 19, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(139, 69, 19, 0.15) 0%, transparent 35%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 20%);
+}
+
+/* Rivets and bolts */
+.terminal-body::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, var(--metal-gray) 0%, var(--metal-dark) 100%);
+  border-radius: 50%;
+  box-shadow: 
+    475px 0 0 0 var(--metal-gray),
+    0 375px 0 0 var(--metal-gray),
+    475px 375px 0 0 var(--metal-gray),
+    inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* CRT Monitor Bezel */
+.crt-bezel {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 720px;
+  height: 450px;
+  background: linear-gradient(135deg, var(--metal-gray) 0%, var(--metal-dark) 100%);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 
+    inset 0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CRT Screen */
+.crt-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--screen-black);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
+  
+  /* Curved screen effect */
+  background-image: 
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.1) 70%);
+}
+
+.crt-screen.active {
+  background: var(--screen-black);
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.8),
+    inset 0 0 40px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 255, 65, 0.3),
+    0 0 40px rgba(0, 255, 65, 0.1);
+}
+
+/* Screen Content */
+.screen-content {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  color: var(--terminal-green);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 18px;
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Startup Screen */
+.startup-screen {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.vault-tec-logo {
+  margin-bottom: 40px;
+}
+
+.logo-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--vault-cream);
+  text-shadow: 
+    0 0 10px var(--vault-cream),
+    0 0 20px var(--vault-cream),
+    0 0 30px var(--vault-cream-dark);
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.logo-subtitle {
+  font-family: 'Orbitron', monospace;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--vault-cream);
+  letter-spacing: 8px;
+  opacity: 0.8;
+}
+
+.startup-text {
+  margin-bottom: 40px;
+}
+
+.status-line {
+  font-size: 28px;
+  color: var(--terminal-amber);
+  margin-bottom: 10px;
+  animation: pulse-amber 2s ease-in-out infinite;
+}
+
+@keyframes pulse-amber {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.instruction {
+  font-size: 20px;
+  color: var(--terminal-green-dim);
+  opacity: 0.7;
+}
+
+/* Power Button */
+.power-button {
+  width: 120px;
+  height: 120px;
+  border: 3px solid var(--terminal-green);
+  background: rgba(0, 255, 65, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 48px;
+  color: var(--terminal-green);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 65, 0.3),
+    inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.power-button:hover {
+  background: rgba(0, 255, 65, 0.2);
+  box-shadow: 
+    0 0 30px rgba(0, 255, 65, 0.5),
+    inset 0 0 30px rgba(0, 255, 65, 0.2);
+  transform: scale(1.05);
+}
+
+.power-symbol {
+  text-shadow: 0 0 10px var(--terminal-green);
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--terminal-green-dim);
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--terminal-green-dim);
+}
+
+.header-left {
+  font-weight: bold;
+}
+
+.header-right {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Terminal Output */
+.terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--terminal-green-dim) transparent;
+}
+
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: var(--terminal-green-dim);
+  border-radius: 3px;
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.terminal-line.command {
+  color: var(--terminal-green);
+  font-weight: bold;
+}
+
+.terminal-line.output {
+  color: var(--terminal-green-dim);
+}
+
+.terminal-line.error {
+  color: #ff4444;
+}
+
+.terminal-line.boot {
+  color: var(--terminal-green);
+  animation: type-in 0.1s ease-out;
+}
+
+@keyframes type-in {
+  from { opacity: 0; transform: translateX(-5px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Terminal Input */
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+}
+
+.input-form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.prompt {
+  color: var(--terminal-green);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--terminal-green);
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: var(--terminal-green);
+}
+
+.cursor {
+  color: var(--terminal-green);
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Scan Lines Effect */
+.scan-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 255, 65, 0.03) 2px,
+    rgba(0, 255, 65, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 3;
+  animation: scan-line-flicker 0.1s linear infinite;
+}
+
+@keyframes scan-line-flicker {
+  0% { opacity: 1; }
+  98% { opacity: 1; }
+  99% { opacity: 0.98; }
+  100% { opacity: 1; }
+}
+
+/* Screen Curvature */
+.screen-curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 85%,
+    rgba(0, 0, 0, 0.1) 90%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+  border-radius: inherit;
+}
+
+/* Phosphor Glow */
+.phosphor-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 255, 65, 0.02) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: phosphor-pulse 3s ease-in-out infinite;
+}
+
+@keyframes phosphor-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Bezel Vents */
+.bezel-vents {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vent-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--metal-dark) 0%, var(--metal-gray) 50%, var(--metal-dark) 100%);
+  border-radius: 1px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Control Panel */
+.control-panel {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  height: 90px;
+  background: linear-gradient(135deg, var(--metal-gray) 0%, var(--metal-dark) 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Holotape Drive */
+.holotape-drive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.drive-slot {
+  width: 90px;
+  height: 12px;
+  background: linear-gradient(180deg, #000 0%, #333 100%);
+  border-radius: 4px;
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.8),
+    0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.drive-label {
+  font-size: 12px;
+  color: var(--vault-cream);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Status Lights */
+.status-lights {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.status-light {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.status-light.red {
+  background: radial-gradient(circle, #ff4444 0%, #cc0000 100%);
+}
+
+.status-light.amber {
+  background: radial-gradient(circle, #666 0%, #333 100%);
+}
+
+.status-light.amber.active {
+  background: radial-gradient(circle, var(--terminal-amber) 0%, #cc9900 100%);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(255, 191, 0, 0.6);
+}
+
+.status-light.green {
+  background: radial-gradient(circle, #666 0%, #333 100%);
+}
+
+.status-light.green.active {
+  background: radial-gradient(circle, var(--terminal-green) 0%, var(--terminal-green-dim) 100%);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(255, 255, 255, 0.1),
+    0 0 8px rgba(0, 255, 65, 0.6);
+}
+
+/* Control Knobs */
+.control-knobs {
+  display: flex;
+  gap: 20px;
+}
+
+.knob {
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle, var(--metal-gray) 0%, var(--metal-dark) 100%);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.knob:hover {
+  transform: scale(1.05);
+}
+
+.knob-indicator {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 12px;
+  background: var(--vault-cream);
+  border-radius: 1px;
+}
+
+/* Terminal Branding */
+.terminal-branding {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  text-align: right;
+  width: 200px;
+}
+
+.brand-text {
+  font-size: 6px;
+  color: var(--vault-cream);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.serial-number {
+  font-size: 5px;
+  color: var(--vault-cream);
+  opacity: 0.7;
+  font-family: 'Orbitron', monospace;
+}
+
+/* Keyboard Edge */
+.keyboard-edge {
+  width: 800px;
+  height: 90px;
+  background: linear-gradient(135deg, var(--vault-blue-dark) 0%, var(--metal-dark) 100%);
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.05);
+  transform: translateZ(-10px);
+}
+
+.keyboard-keys {
+  padding: 15px 30px;
+}
+
+.key-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.key {
+  width: 36px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--vault-cream) 0%, #e5e7eb 100%);
+  border-radius: 2px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  
+  /* Weathering */
+  background-image: 
+    radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+}
+
+.key.wide {
+  width: 90px;
+}
+
+/* Terminal Base */
+.terminal-base {
+  width: 740px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--metal-dark) 0%, #1f2937 100%);
+  border-radius: 0 0 12px 12px;
+  margin: 0 30px;
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.05);
+  transform: translateZ(-20px);
+}
+
+/* Holographic Panel */
+.holographic-panel {
+  position: fixed;
+  top: 0;
+  right: -60%;
+  width: 60%;
+  height: 100vh;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 65, 0.05) 0%, 
+    rgba(0, 255, 65, 0.02) 50%, 
+    rgba(0, 255, 65, 0.05) 100%);
+  backdrop-filter: blur(10px);
+  border-left: 2px solid rgba(0, 255, 65, 0.3);
+  transition: right 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.holographic-panel.open {
+  right: 0;
+}
+
+.holographic-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(0, 255, 65, 0.03) 1px,
+    transparent 2px,
+    transparent 100px
+  );
+  pointer-events: none;
+  animation: hologram-flicker 3s ease-in-out infinite;
+}
+
+@keyframes hologram-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.holographic-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    rgba(0, 255, 65, 0.02) 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  animation: scan-lines-move 0.1s linear infinite;
+}
+
+@keyframes scan-lines-move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+.panel-header {
+  padding: 30px;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.panel-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 24px;
+  color: var(--terminal-green);
+  text-shadow: 0 0 10px var(--terminal-green);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.panel-subtitle {
+  font-size: 14px;
+  color: var(--terminal-green-dim);
+  opacity: 0.8;
+}
+
+.panel-content {
+  padding: 30px;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  position: relative;
+  z-index: 2;
+  color: var(--terminal-green);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Panel Content Styling - Holographic Green Theme */
+.panel-content * {
+  color: var(--terminal-green-dim) !important;
+}
+
+.panel-content h1,
+.panel-content h2,
+.panel-content h3,
+.panel-content h4,
+.panel-content h5,
+.panel-content h6 {
+  color: var(--terminal-green) !important;
+  text-shadow: 0 0 5px var(--terminal-green);
+  font-family: 'Orbitron', monospace;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+
+.panel-content h1 {
+  font-size: 28px;
+  border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+  padding-bottom: 10px;
+}
+
+.panel-content h2 {
+  font-size: 24px;
+}
+
+.panel-content h3 {
+  font-size: 20px;
+}
+
+.panel-content p {
+  color: var(--terminal-green-dim) !important;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.panel-content a {
+  color: var(--terminal-green) !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+  transition: all 0.3s ease;
+}
+
+.panel-content a:hover {
+  color: var(--vault-cream) !important;
+  border-bottom-color: var(--vault-cream);
+  text-shadow: 0 0 5px var(--vault-cream);
+}
+
+.panel-content ul,
+.panel-content ol {
+  color: var(--terminal-green-dim) !important;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.panel-content li {
+  margin-bottom: 8px;
+  color: var(--terminal-green-dim) !important;
+}
+
+.panel-content code {
+  background: rgba(0, 255, 65, 0.1) !important;
+  color: var(--terminal-green) !important;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.panel-content pre {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  border-radius: 5px;
+  padding: 15px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.panel-content pre code {
+  background: none !important;
+  padding: 0;
+}
+
+.panel-content blockquote {
+  border-left: 3px solid var(--terminal-green);
+  padding-left: 15px;
+  margin: 15px 0;
+  font-style: italic;
+  color: var(--terminal-green-dim) !important;
+}
+
+.panel-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.panel-content th,
+.panel-content td {
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.panel-content th {
+  background: rgba(0, 255, 65, 0.1) !important;
+  color: var(--terminal-green) !important;
+  font-weight: bold;
+}
+
+.panel-content td {
+  color: var(--terminal-green-dim) !important;
+}
+
+/* Override all possible white/light backgrounds */
+.panel-content .bg-white,
+.panel-content .bg-gray-50,
+.panel-content .bg-blue-50,
+.panel-content .bg-green-50,
+.panel-content .bg-purple-50,
+.panel-content .bg-blue-100,
+.panel-content .bg-green-100,
+.panel-content .bg-purple-100,
+.panel-content .bg-gray-100 {
+  background: rgba(0, 255, 65, 0.05) !important;
+  border: 1px solid rgba(0, 255, 65, 0.2) !important;
+}
+
+/* Override text colors */
+.panel-content .text-gray-800,
+.panel-content .text-gray-700,
+.panel-content .text-gray-600,
+.panel-content .text-blue-800,
+.panel-content .text-green-800,
+.panel-content .text-purple-800,
+.panel-content .text-blue-600,
+.panel-content .text-green-600,
+.panel-content .text-purple-600 {
+  color: var(--terminal-green-dim) !important;
+}
+
+/* Buttons and interactive elements */
+.panel-content button {
+  background: rgba(0, 255, 65, 0.1) !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  color: var(--terminal-green) !important;
+  transition: all 0.3s ease;
+}
+
+.panel-content button:hover {
+  background: rgba(0, 255, 65, 0.2) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+/* Input fields */
+.panel-content input,
+.panel-content textarea {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(0, 255, 65, 0.3) !important;
+  color: var(--terminal-green) !important;
+}
+
+.panel-content input:focus,
+.panel-content textarea:focus {
+  border-color: var(--terminal-green) !important;
+  box-shadow: 0 0 5px rgba(0, 255, 65, 0.5) !important;
+}
+
+/* Labels */
+.panel-content label {
+  color: var(--terminal-green-dim) !important;
+}
+
+/* Scrollbar for panel content */
+.panel-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: var(--terminal-green-dim);
+  border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-green);
+}
+
+.panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 2px solid var(--terminal-green);
+  color: var(--terminal-green);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.panel-close:hover {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vault-tec-terminal {
+    padding: 20px;
+  }
+  
+  .terminal-housing {
+    transform: scale(0.8) rotateX(5deg) rotateY(-2deg);
+  }
+  
+  .logo-text {
+    font-size: 36px;
+  }
+  
+  .screen-content {
+    font-size: 12px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-housing {
+    transform: scale(0.6) rotateX(5deg) rotateY(-2deg);
+  }
+  
+  .logo-text {
+    font-size: 28px;
+  }
+  
+  .screen-content {
+    font-size: 10px;
+    padding: 10px;
+  }
+}

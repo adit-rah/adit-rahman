@@ -1,4 +1,5 @@
-@import './styles/terminal-effects.css';
+/* Import Vault-Tec Terminal Styles */
+@import './styles/vault-tec-terminal.css';
 
 @tailwind base;
 @tailwind components;
@@ -6,18 +7,18 @@
 
 :root {
   font-family: 'Share Tech Mono', 'Courier New', monospace;
-  line-height: 1.4;
+  line-height: 1.5;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
 
-  color-scheme: dark;
-  color: #00FF41;
-  background-color: #000000;
+  color-scheme: light;
+  color: #1f2937;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -28,11 +29,11 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #000000;
-  color: #00FF41;
-  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  background-color: #f9fafb;
+  color: #1f2937;
+  font-family: 'Inter', 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 16px;
   overflow: hidden;
-  letter-spacing: 0.5px;
 }
 
 #root {
