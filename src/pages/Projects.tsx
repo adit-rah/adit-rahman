@@ -4,28 +4,28 @@ const projects = [
     tech: "Python, PyTorch, OpenCV, Streamlit, SQLite",
     description:
       "Real-time focus detection system that classifies user engagement through webcam input using a fine-tuned ResNet-based CNN. Features a rolling attention-scoring algorithm with probabilistic inference and a fully on-device AI pipeline for privacy.",
-    href: "https://github.com/adit-rah",
+    href: "https://github.com/adit-rah/lock-in",
   },
   {
     title: "GeoGuard",
     tech: "Python, React Native, Flask, MongoDB",
     description:
       "Mobile navigation app that uses crime-aware pathfinding and geospatial data to generate the safest routes. Leverages 40,000+ crime data points from the GTA and the OpenRouteService API to offer both fastest and safest options.",
-    href: "https://github.com/adit-rah",
+    href: "https://github.com/TamirPol/GeoGuard",
   },
   {
     title: "Event Aggregator",
     tech: "Go, React, TypeScript, SQLite, WebSocket, Docker",
     description:
       "Real-time event aggregator built with Go goroutines and channel-based communication. Supports dynamic listener management via RESTful APIs and streams live events to concurrent clients over WebSockets with minimal latency.",
-    href: "https://github.com/adit-rah",
+    href: "https://github.com/adit-rah/chronicle",
   },
   {
     title: "Chess Engine",
     tech: "C++",
     description:
       "Fully functional chess engine using OOP principles with Minimax search and Alpha-Beta pruning. Reduced evaluated game states by 80%, cutting AI move computation from 4s to under 800ms.",
-    href: "https://github.com/adit-rah",
+    href: "https://github.com/adit-rah/chess-engine",
   },
 ];
 
