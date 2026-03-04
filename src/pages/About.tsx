@@ -4,7 +4,6 @@ import { FadeInGroup, FadeIn } from "@/components/FadeIn";
 import {
   DoodleSpark,
   DoodleUni,
-  DoodleBuild,
   DoodleShip,
 } from "@/components/Doodles";
 
@@ -13,28 +12,21 @@ const journey = [
     step: "Step 1",
     title: "The Spark",
     content:
-      "Fell in love with making things on a screen actually do stuff. Started with Python, broke a lot of things, and kept going.",
+      "Fell in love with coding in grade 3 when I made a chess clone on Khan Academy's code editor. I loved making things on a screen actually do stuff. Started with JavaScript, broke a lot of things, and kept going.",
     visual: <DoodleSpark />,
   },
   {
     step: "Step 2",
     title: "The Deep End",
     content:
-      "Landed at the University of Waterloo for CS. Algorithms, functional programming, graph theory — the works. 3.86 cGPA and counting.",
+      "I built projects that solve problems in my life, help me get things done, or are just plain fun. Taking ideas from concept to deployment and learning what actually works along the way.",
     visual: <DoodleUni />,
   },
   {
     step: "Step 3",
-    title: "The Real World",
-    content:
-      "Interned at Shopify — migrated production databases, built job systems, refactored GraphQL APIs, and debugged performance regressions in prod.",
-    visual: <DoodleBuild />,
-  },
-  {
-    step: "Step 4",
     title: "What's Next",
     content:
-      "Building side projects, learning in public, and looking for the next challenge. Always shipping.",
+      "Hunting for the next challenge, wherever I can ship real impact or find a problem worth solving. Building in public and learning as I go. Always shipping.",
     visual: <DoodleShip />,
   },
 ];

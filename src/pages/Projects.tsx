@@ -7,7 +7,7 @@ import {
   Shield,
   Radio,
   Crown,
-  Gamepad2,
+  Car,
 } from "lucide-react";
 
 const projects = [
@@ -80,54 +80,6 @@ export default function Projects() {
               </h2>
               <div className="space-y-6">
                 <a
-                  href="https://adit-rah.github.io/driving-simulator/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group rounded-xl border border-border overflow-hidden hover:border-muted-foreground/40 transition-colors"
-                >
-                  <div className="relative h-44 overflow-hidden">
-                    <img
-                      src="./driving-sim-v1.png"
-                      alt="Driving Simulator screenshot"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
-                      <span className="inline-flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-rose-400">
-                        <Gamepad2 className="size-4" />
-                      </span>
-                      <h3 className="text-base font-medium text-foreground drop-shadow-md">
-                        Driving Simulator
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="px-5 py-4 space-y-2">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Browser-based driving sim with procedurally generated infinite
-                      city, realistic vehicle physics, 4 camera modes, and chunk
-                      streaming. Built with Three.js, Rapier3D, and TypeScript.
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground/50">
-                        TypeScript, Three.js, Rapier3D, Vite
-                      </span>
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                        Play it &rarr;
-                      </span>
-                    </div>
-                    <a
-                      href="https://github.com/adit-rah/driving-simulator"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      View source on GitHub &rarr;
-                    </a>
-                  </div>
-                </a>
-
-                <a
                   href="https://adit-rah.github.io/chess-engine/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -165,6 +117,54 @@ export default function Projects() {
                     </div>
                     <a
                       href="https://github.com/adit-rah/chess-engine"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View source on GitHub &rarr;
+                    </a>
+                  </div>
+                </a>
+
+                <a
+                  href="https://adit-rah.github.io/driving-simulator/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group rounded-xl border border-border overflow-hidden hover:border-muted-foreground/40 transition-colors"
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src="./driving-sim-v1.png"
+                      alt="Driving Simulator screenshot"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-rose-400">
+                        <Car className="size-4" />
+                      </span>
+                      <h3 className="text-base font-medium text-foreground drop-shadow-md">
+                        Driving Simulator
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4 space-y-2">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Browser-based driving sim with procedurally generated infinite
+                      city, realistic vehicle physics, 4 camera modes, and chunk
+                      streaming. Built with Three.js, Rapier3D, and TypeScript.
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground/50">
+                        TypeScript, Three.js, Rapier3D, Vite
+                      </span>
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                        Play it &rarr;
+                      </span>
+                    </div>
+                    <a
+                      href="https://github.com/adit-rah/driving-simulator"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
