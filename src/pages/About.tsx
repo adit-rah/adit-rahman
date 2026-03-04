@@ -1,5 +1,6 @@
 import { FeatureSteps } from "@/components/ui/feature-section";
 import Footer from "@/components/Footer";
+import { FadeInGroup, FadeIn } from "@/components/FadeIn";
 import {
   DoodleSpark,
   DoodleUni,
@@ -42,12 +43,16 @@ export default function About() {
   return (
     <>
       <div className="min-h-screen bg-background pt-32 pb-20 px-6">
-        <div className="max-w-5xl mx-auto mb-10 px-8 md:px-12">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
-            About
-          </h1>
-        </div>
-        <FeatureSteps features={journey} />
+        <FadeInGroup>
+          <FadeIn className="max-w-5xl mx-auto mb-10 px-8 md:px-12">
+            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+              About
+            </h1>
+          </FadeIn>
+          <FadeIn>
+            <FeatureSteps features={journey} />
+          </FadeIn>
+        </FadeInGroup>
       </div>
       <Footer />
     </>

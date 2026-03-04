@@ -167,15 +167,18 @@ export default function DisplayCards({
   const handleCardClick = useCallback(
     (clickedIndex: number) => {
       if (!expanded) {
-        onToggle();
-        setTimeout(() => {
-          const el = cardEls.current[clickedIndex];
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            const targetY = window.scrollY + rect.top - window.innerHeight / 2 + rect.height / 2;
-            smoothScrollTo(targetY);
-          }
-        }, 150);
+        const container = containerRef.current;
+        if (container) {
+          const containerTop = container.getBoundingClientRect().top + window.scrollY;
+          const estimatedCardHeight = 140;
+          const gap = 16;
+          const cardOffset = clickedIndex * (estimatedCardHeight + gap);
+          const targetY = containerTop + cardOffset - window.innerHeight / 3;
+          onToggle();
+          smoothScrollTo(Math.max(0, targetY));
+        } else {
+          onToggle();
+        }
       } else {
         onToggle();
         setTimeout(() => {

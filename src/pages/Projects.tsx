@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DisplayCards from "@/components/ui/display-cards";
 import Footer from "@/components/Footer";
+import { FadeInGroup, FadeIn } from "@/components/FadeIn";
 import {
   Brain,
   Shield,
@@ -58,51 +59,85 @@ export default function Projects() {
   return (
     <>
       <div className="min-h-screen bg-background pt-32 pb-20 px-6">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-baseline justify-between mb-10">
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
-              Projects
-            </h1>
-            <button
-              onClick={() => setExpanded((v) => !v)}
-              className="text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-            >
-              {expanded ? "Stack view" : "Flat view"}
-            </button>
-          </div>
-          <div className={expanded ? "" : "flex justify-center -translate-x-8 mt-6"}>
-            <DisplayCards
-              projects={projects}
-              expanded={expanded}
-              onToggle={() => setExpanded((v) => !v)}
-            />
-          </div>
+        <FadeInGroup className="max-w-2xl mx-auto">
+          <FadeIn>
+            <div className="flex items-baseline justify-between mb-10">
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+                Projects
+              </h1>
+              <button
+                onClick={() => setExpanded((v) => !v)}
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              >
+                {expanded ? "Stack view" : "Flat view"}
+              </button>
+            </div>
+          </FadeIn>
+          <FadeIn>
+            <div className={expanded ? "" : "flex justify-center -translate-x-12 mt-10"}>
+              <DisplayCards
+                projects={projects}
+                expanded={expanded}
+                onToggle={() => setExpanded((v) => !v)}
+              />
+            </div>
+          </FadeIn>
 
-          <div className="mt-20">
-            <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">
-              Games
-            </h2>
-            <a
-              href="#"
-              className="block group border border-border rounded-xl p-5 hover:border-muted-foreground/40 transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center rounded-full bg-muted p-1.5 text-rose-400">
-                  <Gamepad2 className="size-4" />
-                </span>
-                <h3 className="text-base font-medium text-rose-400">
-                  Driving Simulator
-                </h3>
-                <span className="ml-auto text-xs text-muted-foreground/50">
-                  Coming soon
-                </span>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                A browser-based driving simulator. Link coming soon.
-              </p>
-            </a>
-          </div>
-        </div>
+          <FadeIn>
+            <div className={expanded ? "mt-12" : "mt-56"}>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">
+                Games
+              </h2>
+              <a
+                href="https://adit-rah.github.io/driving-simulator/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group rounded-xl border border-border overflow-hidden hover:border-muted-foreground/40 transition-colors"
+              >
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src="./driving-sim-v1.png"
+                    alt="Driving Simulator screenshot"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-rose-400">
+                      <Gamepad2 className="size-4" />
+                    </span>
+                    <h3 className="text-base font-medium text-foreground drop-shadow-md">
+                      Driving Simulator
+                    </h3>
+                  </div>
+                </div>
+                <div className="px-5 py-4 space-y-2">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Browser-based driving sim with procedurally generated infinite
+                    city, realistic vehicle physics, 4 camera modes, and chunk
+                    streaming. Built with Three.js, Rapier3D, and TypeScript.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground/50">
+                      TypeScript, Three.js, Rapier3D, Vite
+                    </span>
+                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                      Play it &rarr;
+                    </span>
+                  </div>
+                  <a
+                    href="https://github.com/adit-rah/driving-simulator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View source on GitHub &rarr;
+                  </a>
+                </div>
+              </a>
+            </div>
+          </FadeIn>
+        </FadeInGroup>
       </div>
       <Footer />
     </>

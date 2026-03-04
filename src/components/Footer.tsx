@@ -1,7 +1,10 @@
-const links = [
-  { label: "Email", href: "mailto:aditrahman5945@gmail.com" },
-  { label: "GitHub", href: "https://github.com/adit-rah" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/adit-rahman" },
+import { Github, Linkedin, Mail } from "lucide-react";
+import { type ReactNode } from "react";
+
+const links: { label: string; href: string; icon: ReactNode }[] = [
+  { label: "Email", href: "mailto:aditrahman5945@gmail.com", icon: <Mail className="size-4" /> },
+  { label: "GitHub", href: "https://github.com/adit-rah", icon: <Github className="size-4" /> },
+  { label: "LinkedIn", href: "https://linkedin.com/in/adit-rahman", icon: <Linkedin className="size-4" /> },
 ];
 
 export default function Footer() {
@@ -21,8 +24,9 @@ export default function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
+              {link.icon}
               {link.label}
             </a>
           ))}
