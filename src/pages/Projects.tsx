@@ -41,16 +41,6 @@ const projects = [
     iconClassName: "text-sky-400",
     titleClassName: "text-sky-400",
   },
-  {
-    icon: <Crown className="size-4" />,
-    title: "Chess Engine",
-    tech: "C++",
-    description:
-      "Fully functional chess engine using OOP principles with Minimax search and Alpha-Beta pruning. Reduced evaluated game states by 80%, cutting AI move computation from 4s to under 800ms.",
-    href: "https://github.com/adit-rah/chess-engine",
-    iconClassName: "text-amber-400",
-    titleClassName: "text-amber-400",
-  },
 ];
 
 export default function Projects() {
@@ -88,53 +78,103 @@ export default function Projects() {
               <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">
                 Games
               </h2>
-              <a
-                href="https://adit-rah.github.io/driving-simulator/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group rounded-xl border border-border overflow-hidden hover:border-muted-foreground/40 transition-colors"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <img
-                    src="./driving-sim-v1.png"
-                    alt="Driving Simulator screenshot"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                  <div className="absolute bottom-3 left-4 flex items-center gap-2">
-                    <span className="inline-flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-rose-400">
-                      <Gamepad2 className="size-4" />
-                    </span>
-                    <h3 className="text-base font-medium text-foreground drop-shadow-md">
-                      Driving Simulator
-                    </h3>
+              <div className="space-y-6">
+                <a
+                  href="https://adit-rah.github.io/driving-simulator/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group rounded-xl border border-border overflow-hidden hover:border-muted-foreground/40 transition-colors"
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src="./driving-sim-v1.png"
+                      alt="Driving Simulator screenshot"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-rose-400">
+                        <Gamepad2 className="size-4" />
+                      </span>
+                      <h3 className="text-base font-medium text-foreground drop-shadow-md">
+                        Driving Simulator
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                <div className="px-5 py-4 space-y-2">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Browser-based driving sim with procedurally generated infinite
-                    city, realistic vehicle physics, 4 camera modes, and chunk
-                    streaming. Built with Three.js, Rapier3D, and TypeScript.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground/50">
-                      TypeScript, Three.js, Rapier3D, Vite
-                    </span>
-                    <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                      Play it &rarr;
-                    </span>
+                  <div className="px-5 py-4 space-y-2">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Browser-based driving sim with procedurally generated infinite
+                      city, realistic vehicle physics, 4 camera modes, and chunk
+                      streaming. Built with Three.js, Rapier3D, and TypeScript.
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground/50">
+                        TypeScript, Three.js, Rapier3D, Vite
+                      </span>
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                        Play it &rarr;
+                      </span>
+                    </div>
+                    <a
+                      href="https://github.com/adit-rah/driving-simulator"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View source on GitHub &rarr;
+                    </a>
                   </div>
-                  <a
-                    href="https://github.com/adit-rah/driving-simulator"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    View source on GitHub &rarr;
-                  </a>
-                </div>
-              </a>
+                </a>
+
+                <a
+                  href="https://adit-rah.github.io/chess-engine/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group rounded-xl border border-border overflow-hidden hover:border-muted-foreground/40 transition-colors"
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <img
+                      src="./chess-engine-v1.png"
+                      alt="Chess Engine screenshot"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center rounded-full bg-background/80 backdrop-blur-sm p-1.5 text-amber-400">
+                        <Crown className="size-4" />
+                      </span>
+                      <h3 className="text-base font-medium text-foreground drop-shadow-md">
+                        Chess Engine
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="px-5 py-4 space-y-2">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Fully functional chess engine with Minimax search and Alpha-Beta
+                      pruning. Supports human vs human, human vs AI, and AI vs AI with
+                      four difficulty levels. C++ core compiled to WebAssembly.
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground/50">
+                        C++, WebAssembly, SDL2
+                      </span>
+                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                        Play it &rarr;
+                      </span>
+                    </div>
+                    <a
+                      href="https://github.com/adit-rah/chess-engine"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-block pt-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View source on GitHub &rarr;
+                    </a>
+                  </div>
+                </a>
+              </div>
             </div>
           </FadeIn>
         </FadeInGroup>
