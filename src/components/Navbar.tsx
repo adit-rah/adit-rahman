@@ -36,7 +36,7 @@ export default function Navbar() {
           >
             AR
           </NavLink>
-          <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
             <div className="bg-background/90 backdrop-blur-md border border-border/60 rounded-lg shadow-lg py-4 px-4 min-w-[220px]">
               <p className="font-medium text-foreground">Adit Rahman</p>
               <p className="text-xs text-muted-foreground mt-0.5">
