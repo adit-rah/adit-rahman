@@ -3,9 +3,9 @@ const coursework = [
   "Functional Programming (Advanced)",
   "Algorithm Design & Data Abstraction",
   "Graph Theory",
+  "Logic and Computation",
   "Linear Algebra",
   "Statistics",
-  "Logic and Computation",
 ];
 
 export default function Education() {

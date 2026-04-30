@@ -16,10 +16,30 @@ const projects = [
     title: "Lock-In",
     tech: "Python, PyTorch, OpenCV, Streamlit, SQLite",
     description:
-      "Real-time focus detection system that classifies user engagement through webcam input using a fine-tuned ResNet-based CNN. Features a rolling attention-scoring algorithm with probabilistic inference and a fully on-device AI pipeline for privacy.",
+      "Real-time focus detection classifying user engagement via webcam using a fine-tuned ResNet CNN, with a rolling probabilistic attention-scoring algorithm for context-aware feedback. Fully on-device AI pipeline combining PyTorch inference and OpenCV frame capture for privacy.",
     href: "https://github.com/adit-rah/lock-in",
     iconClassName: "text-purple-400",
     titleClassName: "text-purple-400",
+  },
+  {
+    icon: <Radio className="size-4" />,
+    title: "Event Aggregator",
+    tech: "Go, React, TypeScript, SQLite, WebSocket, Docker",
+    description:
+      "Real-time event aggregator in Go using goroutines and channels for concurrent data collection, with REST APIs for dynamic listener management without service restarts. WebSocket streaming layer delivers live events to concurrent clients with minimal latency.",
+    href: "https://github.com/adit-rah/chronicle",
+    iconClassName: "text-sky-400",
+    titleClassName: "text-sky-400",
+  },
+  {
+    icon: <Crown className="size-4" />,
+    title: "Chess Engine",
+    tech: "C++20, SDL2, WebAssembly",
+    description:
+      "Cross-platform chess engine in C++20 with SDL2 graphics and a WebAssembly browser build, using OOP and the Observer pattern for a modular multi-display architecture. Five AI difficulty levels with 4-ply Alpha-Beta pruning, piece-square evaluation, and quiescence search—cuts evaluated states by ~95% and move time from ~4s to ~200ms.",
+    href: "https://github.com/adit-rah/chess-engine",
+    iconClassName: "text-amber-400",
+    titleClassName: "text-amber-400",
   },
   {
     icon: <Shield className="size-4" />,
@@ -30,16 +50,6 @@ const projects = [
     href: "https://github.com/TamirPol/GeoGuard",
     iconClassName: "text-emerald-400",
     titleClassName: "text-emerald-400",
-  },
-  {
-    icon: <Radio className="size-4" />,
-    title: "Event Aggregator",
-    tech: "Go, React, TypeScript, SQLite, WebSocket, Docker",
-    description:
-      "Real-time event aggregator built with Go goroutines and channel-based communication. Supports dynamic listener management via RESTful APIs and streams live events to concurrent clients over WebSockets with minimal latency.",
-    href: "https://github.com/adit-rah/chronicle",
-    iconClassName: "text-sky-400",
-    titleClassName: "text-sky-400",
   },
 ];
 

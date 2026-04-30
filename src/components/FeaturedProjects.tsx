@@ -3,10 +3,24 @@ import { Link } from "react-router-dom";
 const featured = [
   {
     title: "Lock-In",
-    tech: "Python, PyTorch, OpenCV",
+    tech: "Python, PyTorch, OpenCV, Streamlit, SQLite",
     description:
-      "Real-time focus detection using a fine-tuned ResNet CNN with a rolling attention-scoring algorithm. Fully on-device for privacy.",
+      "Real-time focus detection classifying engagement via webcam with a fine-tuned ResNet CNN and a rolling probabilistic attention-scoring algorithm. Fully on-device PyTorch + OpenCV pipeline—zero cloud dependency.",
     href: "https://github.com/adit-rah/lock-in",
+  },
+  {
+    title: "Event Aggregator",
+    tech: "Go, React, TypeScript, SQLite, WebSocket, Docker",
+    description:
+      "Real-time aggregator in Go using goroutines and channels for concurrent data collection, REST APIs for dynamic listener management without restarts, and a WebSocket streaming layer for concurrent clients.",
+    href: "https://github.com/adit-rah/chronicle",
+  },
+  {
+    title: "Chess Engine",
+    tech: "C++20, SDL2, WebAssembly",
+    description:
+      "Cross-platform engine with SDL2 and a WASM browser build. Five AI levels with Alpha-Beta pruning, piece-square evaluation, and quiescence search—cuts evaluated states ~95%, move time from ~4s to ~200ms.",
+    href: "https://github.com/adit-rah/chess-engine",
   },
   {
     title: "GeoGuard",
@@ -14,13 +28,6 @@ const featured = [
     description:
       "Crime-aware mobile navigation leveraging 40K+ data points to generate the safest routes via OpenRouteService.",
     href: "https://github.com/TamirPol/GeoGuard",
-  },
-  {
-    title: "Event Aggregator",
-    tech: "Go, React, WebSocket, Docker",
-    description:
-      "Real-time event streaming with Go goroutines, dynamic listener management, and WebSocket delivery to concurrent clients.",
-    href: "https://github.com/adit-rah/chronicle",
   },
 ];
 
