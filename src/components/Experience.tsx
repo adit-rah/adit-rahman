@@ -6,8 +6,8 @@ const experiences = [
     bullets: [
       "Designed and shipped a production job system from scratch (Node.js, BullMQ, Redis, Kubernetes worker pods) with custom Prometheus metrics and OpenTelemetry instrumentation, processing 122K+ daily tasks",
       "Migrated production database tables from Vitess (MySQL) to YugabyteDB for Shopify's ads domain, processing 11.59M writes with a 100% success rate across a system serving 18M+ ads/month",
-      "Diagnosed a critical 130K-row data inconsistency during production migration, traced root cause to primary key duplication across 1.27M rows, and unblocked a cross-team data pipeline dependency within hours",
-      "Built a staging environment from scratch across 5 repositories, independently configuring Docker and Kubernetes deployments, CI/CD pipelines, secrets management, service authentication, and database provisioning",
+      "Diagnosed a critical 130K-row data inconsistency during production migration, traced root cause to composite primary key duplication across 1.27M rows, and unblocked a cross-team Airflow DAG in the ad-delivery pipeline within hours",
+      "Built a staging environment from scratch across 5 repositories, independently configuring Docker and Kubernetes deployments, Buildkite CI/CD pipelines, secrets management, service authentication, and database provisioning",
     ],
   },
   {

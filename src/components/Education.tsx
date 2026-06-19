@@ -2,6 +2,8 @@ const coursework = [
   "Object-Oriented Software Development",
   "Functional Programming (Advanced)",
   "Algorithm Design & Data Abstraction",
+  "Compilers",
+  "Databases",
   "Graph Theory",
   "Logic and Computation",
   "Linear Algebra",
@@ -26,7 +28,7 @@ export default function Education() {
               </span>
             </div>
             <span className="text-xs text-muted-foreground/60 shrink-0">
-              Sep 2024 – Dec 2028
+              Sep 2024 – Apr 2028
             </span>
           </div>
           <p className="text-sm text-muted-foreground">cGPA: 3.86 / 4.00</p>

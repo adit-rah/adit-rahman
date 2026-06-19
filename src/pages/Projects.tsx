@@ -16,7 +16,7 @@ const projects = [
     title: "Lock-In",
     tech: "Python, PyTorch, OpenCV, Streamlit, SQLite",
     description:
-      "Real-time focus detection classifying user engagement via webcam using a fine-tuned ResNet CNN, with a rolling probabilistic attention-scoring algorithm for context-aware feedback. Fully on-device AI pipeline combining PyTorch inference and OpenCV frame capture for privacy.",
+      "Real-time focus detection classifying user engagement via webcam using a fine-tuned ResNet trained on the State Farm distracted-driver dataset (22K+ images), achieving 0.79 F1. Fully on-device AI pipeline combining PyTorch inference, OpenCV frame capture, and temporal prediction smoothing for stable, private feedback.",
     href: "https://github.com/adit-rah/lock-in",
     iconClassName: "text-purple-400",
     titleClassName: "text-purple-400",
