@@ -2,11 +2,18 @@ import { Link } from "react-router-dom";
 
 const featured = [
   {
-    title: "Lock-In",
+    title: "Lock-In Vision Pipeline",
     tech: "Python, PyTorch, OpenCV, Streamlit, SQLite",
     description:
-      "Real-time focus detection classifying engagement via webcam with a fine-tuned ResNet trained on the State Farm distracted-driver dataset (22K+ images), reaching 0.79 F1. Fully on-device PyTorch + OpenCV pipeline with temporal prediction smoothing—zero cloud dependency.",
+      "Real-time focus detection classifying engagement via webcam with a fine-tuned ResNet trained on the State Farm distracted-driver dataset (22K+ images), reaching 0.86 F1. Fully on-device PyTorch + OpenCV pipeline with temporal prediction smoothing—zero cloud dependency.",
     href: "https://github.com/adit-rah/lock-in",
+  },
+  {
+    title: "Point-in-Time Agent Eval Benchmark",
+    tech: "Python, Harbor, Docker, Gemini API, pandas",
+    description:
+      "Data science agent benchmark for bitemporal correctness in data pipelines—60 trials on the terminus-2 harness with gemini-3.5-flash, hitting a 21.7% pass@1 ceiling. Surfaced a trajectory-level failure mode where the model states the point-in-time rule then overrides it mid-execution, producing deterministic 14-cell error clusters rather than stochastic variance.",
+    href: "https://drive.google.com/file/d/17m7OUVWUna8KhAoxetXD1OkGiwpLjrLD/view?usp=sharing",
   },
   {
     title: "Event Aggregator",

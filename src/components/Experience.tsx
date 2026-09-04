@@ -1,13 +1,21 @@
 const experiences = [
   {
     role: "Software Engineer Intern",
+    company: "Faire",
+    period: "Sep 2026 – Dec 2026",
+    bullets: [
+      "Incoming on the Security Engineering team, working on backend infrastructure in Kotlin and Kubernetes",
+    ],
+  },
+  {
+    role: "Software Engineer Intern",
     company: "Shopify",
     period: "Jan 2026 – Apr 2026",
     bullets: [
-      "Designed and shipped a production job system from scratch (Node.js, BullMQ, Redis, Kubernetes worker pods) with custom Prometheus metrics and OpenTelemetry instrumentation, processing 122K+ daily tasks",
-      "Migrated production database tables from Vitess (MySQL) to YugabyteDB for Shopify's ads domain, processing 11.59M writes with a 100% success rate across a system serving 18M+ ads/month",
-      "Diagnosed a critical 130K-row data inconsistency during production migration, traced root cause to composite primary key duplication across 1.27M rows, and unblocked a cross-team Airflow DAG in the ad-delivery pipeline within hours",
-      "Built a staging environment from scratch across 5 repositories, independently configuring Docker and Kubernetes deployments, Buildkite CI/CD pipelines, secrets management, service authentication, and database provisioning",
+      "Designed and shipped a production job system using Node.js, BullMQ, Redis, and Kubernetes worker pods to process 122K+ daily tasks with custom Prometheus metrics and OpenTelemetry instrumentation",
+      "Migrated production tables from Vitess to YugabyteDB for Shopify's ads domain, processing 11.6M records with zero downtime across a system serving 18M+ ads/month",
+      "Unblocked a cross-team Airflow DAG involved in ad delivery within hours by diagnosing a 130K-row data inconsistency, tracing the root cause to composite primary key duplication",
+      "Built the Product Network app's first staging environment with Docker, Kubernetes, and Buildkite CI/CD, enabling pre-production validation and catching breaking changes before release",
     ],
   },
   {
@@ -15,10 +23,10 @@ const experiences = [
     company: "Shopify",
     period: "Sep 2025 – Dec 2025",
     bullets: [
-      "Re-architected merchant eligibility system with parallel validation for safe migration off an external dependency, achieving p50 32ms response latency and a 97.4% cache hit rate across 10.2M production lookups",
-      "Decoupled the ads-publisher service from an external merchant model, refactoring GraphQL APIs, service resolvers, and caching layers while introducing a new request abstraction to eliminate a hard architectural dependency",
-      "Built centralized shop disablement logic handling 581 merchant lifecycle events with 0 errors, consolidating previously fragmented merchant lifecycle management",
-      "Optimized merchant earnings page by migrating data fetching to a client-side architecture, cutting page load times from 2–4s to ~500ms",
+      "Rebuilt the merchant eligibility pipeline with parallel validation and a decoupled cache layer for safe migration off an external dependency, sustaining p50 32ms latency across 10.2M lookups at a 97.4% cache hit rate",
+      "Decoupled the ads-publisher service from the merchant model by introducing a request abstraction and updating GraphQL resolvers, unlocking onboarding for 230K merchants previously blocked by the legacy integration",
+      "Built centralized shop disablement logic handling 581 merchant lifecycle transitions, consolidating previously fragmented merchant lifecycle management",
+      "Optimized the merchant earnings page with client-side data fetching, reducing initial load time by 8x",
     ],
   },
   {

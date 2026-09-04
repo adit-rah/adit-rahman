@@ -8,18 +8,30 @@ import {
   Radio,
   Crown,
   Car,
+  FlaskConical,
 } from "lucide-react";
 
 const projects = [
   {
     icon: <Brain className="size-4" />,
-    title: "Lock-In",
+    title: "Lock-In Vision Pipeline",
     tech: "Python, PyTorch, OpenCV, Streamlit, SQLite",
     description:
-      "Real-time focus detection classifying user engagement via webcam using a fine-tuned ResNet trained on the State Farm distracted-driver dataset (22K+ images), achieving 0.79 F1. Fully on-device AI pipeline combining PyTorch inference, OpenCV frame capture, and temporal prediction smoothing for stable, private feedback.",
+      "Real-time focus detection classifying user engagement via webcam using a fine-tuned ResNet trained on the State Farm distracted-driver dataset (22K+ images), achieving 0.86 F1. Fully on-device AI pipeline combining PyTorch inference, OpenCV frame capture, and temporal prediction smoothing for stable, private feedback.",
     href: "https://github.com/adit-rah/lock-in",
     iconClassName: "text-purple-400",
     titleClassName: "text-purple-400",
+  },
+  {
+    icon: <FlaskConical className="size-4" />,
+    title: "Point-in-Time Agent Eval Benchmark",
+    tech: "Python, Harbor, Docker, Gemini API, pandas",
+    description:
+      "Data science agent benchmark measuring bitemporal correctness in data pipelines, running 60 trials on the terminus-2 agent harness with gemini-3.5-flash and observing a 21.7% pass@1 ceiling. Identified a trajectory-level failure mode where the model correctly states the point-in-time rule but overrides it during execution, and structured error localization across runs with identical 14-cell failure clusters—deterministic reasoning breakdowns rather than stochastic variance.",
+    href: "https://drive.google.com/file/d/17m7OUVWUna8KhAoxetXD1OkGiwpLjrLD/view?usp=sharing",
+    linkLabel: "View writeup →",
+    iconClassName: "text-teal-400",
+    titleClassName: "text-teal-400",
   },
   {
     icon: <Radio className="size-4" />,
@@ -84,7 +96,7 @@ export default function Projects() {
           </FadeIn>
 
           <FadeIn>
-            <div className={expanded ? "mt-12" : "mt-56"}>
+            <div className={expanded ? "mt-12" : "mt-64"}>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">
                 Games
               </h2>
