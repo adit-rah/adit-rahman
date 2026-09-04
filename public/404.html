@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 · Adit Rahman</title>
+    <link rel="icon" type="image/svg+xml" href="/adit-rahman/favicon.svg" />
+    <!--
+      GitHub Pages serves this file for any path that doesn't exist on disk.
+      It is deliberately self-contained: the app is built with base "./", and
+      this page can be served at any depth, so relative asset URLs would break.
+    -->
+    <style>
+      :root {
+        --background: oklch(0.145 0 0);
+        --foreground: oklch(0.985 0 0);
+        --muted-foreground: oklch(0.708 0 0);
+        --border: oklch(0.269 0 0);
+        --radius: 0.625rem;
+      }
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+      main { max-width: 32rem; width: 100%; }
+      .eyebrow {
+        margin: 0 0 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: color-mix(in oklch, var(--muted-foreground) 60%, transparent);
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(1.875rem, 6vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+      }
+      p {
+        margin: 1.25rem 0 0;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: var(--muted-foreground);
+      }
+      code {
+        color: var(--foreground);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.8125rem;
+        word-break: break-all;
+      }
+      .actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      a {
+        font-size: 0.875rem;
+        text-decoration: none;
+        color: var(--muted-foreground);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0.5rem 1rem;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      a:hover {
+        color: var(--foreground);
+        border-color: color-mix(in oklch, var(--muted-foreground) 40%, transparent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">404</p>
+      <h1>This page doesn&rsquo;t exist</h1>
+      <p>
+        Nothing is served at <code id="path"></code>. The file may have moved,
+        or the link might be mistyped.
+      </p>
+      <div class="actions">
+        <a id="home" href="/adit-rahman/">Home</a>
+        <a id="projects" href="/adit-rahman/#/projects">Projects</a>
+        <a id="resume" href="/adit-rahman/#/resume">Resume</a>
+      </div>
+    </main>
+    <script>
+      // On <user>.github.io/<repo>/… the site root is the first path segment;
+      // on a custom domain it is just "/". Derive it so these links survive a
+      // repo rename or a future custom domain.
+      (function () {
+        var root = location.hostname.endsWith(".github.io")
+          ? "/" + location.pathname.split("/")[1] + "/"
+          : "/";
+        document.getElementById("home").href = root;
+        document.getElementById("projects").href = root + "#/projects";
+        document.getElementById("resume").href = root + "#/resume";
+        document.querySelector('link[rel="icon"]').href = root + "favicon.svg";
+        document.getElementById("path").textContent = location.pathname;
+      })();
+    </script>
+  </body>
+</html>
