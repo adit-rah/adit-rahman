@@ -30,6 +30,9 @@ import {
   SiGit,
   SiLinux,
   SiSqlite,
+  SiGnubash,
+  SiNumpy,
+  SiHuggingface,
 } from "react-icons/si";
 
 interface Skill {
@@ -68,6 +71,9 @@ const skills: Skill[] = [
   { name: "MongoDB", icon: <SiMongodb />, description: "Document-based NoSQL database" },
   { name: "Git", icon: <SiGit />, description: "Distributed version control" },
   { name: "Linux", icon: <SiLinux />, description: "Open-source operating system" },
+  { name: "Bash", icon: <SiGnubash />, description: "Shell scripting and automation" },
+  { name: "NumPy", icon: <SiNumpy />, description: "Numerical computing for Python" },
+  { name: "Hugging Face", icon: <SiHuggingface />, description: "Pretrained models and datasets" },
 ];
 
 function SkillIcon({ skill }: { skill: Skill }) {

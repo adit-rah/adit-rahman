@@ -4,6 +4,7 @@ const coursework = [
   "Algorithm Design & Data Abstraction",
   "Compilers",
   "Databases",
+  "Numerical Computation",
   "Graph Theory",
   "Logic and Computation",
   "Linear Algebra",
@@ -31,7 +32,7 @@ export default function Education() {
               Sep 2024 – Apr 2028
             </span>
           </div>
-          <p className="text-sm text-muted-foreground">cGPA: 3.86 / 4.00</p>
+          <p className="text-sm text-muted-foreground">cGPA: 3.81 / 4.00</p>
           <div className="flex flex-wrap gap-2 pt-1">
             {coursework.map((course) => (
               <span

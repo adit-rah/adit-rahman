@@ -8,6 +8,7 @@ interface ProjectCardData {
   tech: string;
   description: string;
   href: string;
+  linkLabel?: string;
   iconClassName?: string;
   titleClassName?: string;
 }
@@ -109,7 +110,7 @@ function ProjectCard({
               className="text-xs text-muted-foreground hover:text-foreground transition-colors w-fit inline-block"
               onClick={(e) => e.stopPropagation()}
             >
-              View on GitHub &rarr;
+              {project.linkLabel ?? "View on GitHub →"}
             </a>
           </div>
         ) : (
@@ -124,7 +125,7 @@ function ProjectCard({
               className="text-xs text-muted-foreground hover:text-foreground transition-colors w-fit"
               onClick={(e) => e.stopPropagation()}
             >
-              View on GitHub &rarr;
+              {project.linkLabel ?? "View on GitHub →"}
             </a>
           </>
         )}
