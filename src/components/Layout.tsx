@@ -4,7 +4,7 @@ import ScrollToTop from "./ScrollToTop";
 
 export default function Layout() {
   return (
-    <div className="dark antialiased">
+    <div className="antialiased">
       <ScrollToTop />
       <Navbar />
       <Outlet />
