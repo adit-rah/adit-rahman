@@ -1,0 +1,7 @@
+# Cloudflare Pages: serve the SPA shell for client-side routes. Anything not
+# listed here (and not a real file) falls through to 404.html with a 404 status,
+# so add a line when adding a route in src/App.tsx.
+/about     /  200
+/projects  /  200
+/contact   /  200
+/resume    /  200
