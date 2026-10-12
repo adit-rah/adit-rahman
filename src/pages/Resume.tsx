@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import Footer from "@/components/Footer";
 import { FadeInGroup, FadeIn } from "@/components/FadeIn";
 
-const PDF_PATH = "./resume.pdf";
+const PDF_PATH = `${import.meta.env.BASE_URL}resume.pdf`;
 
 const actionClass =
   "text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer";
@@ -11,9 +11,7 @@ export default function Resume() {
   const [copied, setCopied] = useState(false);
 
   const copyLink = useCallback(async () => {
-    // Resolve against the current document so the copied URL stays correct
-    // under the relative `base: "./"` on both localhost and the Pages subpath.
-    const url = new URL("resume.pdf", window.location.href).href;
+    const url = new URL(PDF_PATH, window.location.origin).href;
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);

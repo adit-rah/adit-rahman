@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 · Adit Rahman</title>
-    <link rel="icon" type="image/svg+xml" href="/adit-rahman/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!--
-      GitHub Pages serves this file for any path that doesn't exist on disk.
-      It is deliberately self-contained: the app is built with base "./", and
-      this page can be served at any depth, so relative asset URLs would break.
+      Served for any path that isn't a real file or an app route, on both
+      Cloudflare Pages (site at "/") and GitHub Pages (site at "/<repo>/").
+      It is deliberately self-contained so it renders without the app bundle.
     -->
     <style>
       :root {
@@ -84,22 +84,19 @@
         or the link might be mistyped.
       </p>
       <div class="actions">
-        <a id="home" href="/adit-rahman/">Home</a>
-        <a id="projects" href="/adit-rahman/#/projects">Projects</a>
-        <a id="resume" href="/adit-rahman/#/resume">Resume</a>
+        <a id="home" href="/">Home</a>
+        <a id="projects" href="/projects">Projects</a>
+        <a id="resume" href="/resume">Resume</a>
       </div>
     </main>
     <script>
-      // On <user>.github.io/<repo>/… the site root is the first path segment;
-      // on a custom domain it is just "/". Derive it so these links survive a
-      // repo rename or a future custom domain.
       (function () {
         var root = location.hostname.endsWith(".github.io")
           ? "/" + location.pathname.split("/")[1] + "/"
           : "/";
         document.getElementById("home").href = root;
-        document.getElementById("projects").href = root + "#/projects";
-        document.getElementById("resume").href = root + "#/resume";
+        document.getElementById("projects").href = root + "projects";
+        document.getElementById("resume").href = root + "resume";
         document.querySelector('link[rel="icon"]').href = root + "favicon.svg";
         document.getElementById("path").textContent = location.pathname;
       })();

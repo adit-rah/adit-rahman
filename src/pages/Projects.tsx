@@ -109,7 +109,7 @@ export default function Projects() {
                 >
                   <div className="relative h-44 overflow-hidden">
                     <img
-                      src="./chess-engine-v1.png"
+                      src={`${import.meta.env.BASE_URL}chess-engine-v1.png`}
                       alt="Chess Engine screenshot"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
@@ -157,7 +157,7 @@ export default function Projects() {
                 >
                   <div className="relative h-44 overflow-hidden">
                     <img
-                      src="./driving-sim-v1.png"
+                      src={`${import.meta.env.BASE_URL}driving-sim-v1.png`}
                       alt="Driving Simulator screenshot"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
