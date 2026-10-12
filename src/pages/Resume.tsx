@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import Footer from "@/components/Footer";
 import { FadeInGroup, FadeIn } from "@/components/FadeIn";
 
-const PDF_PATH = "/resume.pdf";
+const PDF_PATH = `${import.meta.env.BASE_URL}resume.pdf`;
 
 const actionClass =
   "text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer";
