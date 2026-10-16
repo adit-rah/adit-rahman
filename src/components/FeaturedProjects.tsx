@@ -13,7 +13,7 @@ const featured = [
     tech: "Python, Harbor, Docker, Gemini API, pandas",
     description:
       "Data science agent benchmark for bitemporal correctness in data pipelines—60 trials on the terminus-2 harness with gemini-3.5-flash, hitting a 21.7% pass@1 ceiling. Surfaced a trajectory-level failure mode where the model states the point-in-time rule then overrides it mid-execution, producing deterministic 14-cell error clusters rather than stochastic variance.",
-    href: "https://drive.google.com/file/d/17m7OUVWUna8KhAoxetXD1OkGiwpLjrLD/view?usp=sharing",
+    href: `${import.meta.env.BASE_URL}writeup/pit-eval-bench`,
   },
   {
     title: "Event Aggregator",

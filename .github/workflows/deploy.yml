@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BASE_PATH: /adit-rahman/
-      ROUTES: about projects contact resume
+      ROUTES: about projects contact resume writeup/pit-eval-bench
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

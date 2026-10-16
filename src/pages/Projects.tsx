@@ -28,7 +28,7 @@ const projects = [
     tech: "Python, Harbor, Docker, Gemini API, pandas",
     description:
       "Data science agent benchmark measuring bitemporal correctness in data pipelines, running 60 trials on the terminus-2 agent harness with gemini-3.5-flash and observing a 21.7% pass@1 ceiling. Identified a trajectory-level failure mode where the model correctly states the point-in-time rule but overrides it during execution, and structured error localization across runs with identical 14-cell failure clusters—deterministic reasoning breakdowns rather than stochastic variance.",
-    href: "https://drive.google.com/file/d/17m7OUVWUna8KhAoxetXD1OkGiwpLjrLD/view?usp=sharing",
+    href: `${import.meta.env.BASE_URL}writeup/pit-eval-bench`,
     linkLabel: "View writeup →",
     iconClassName: "text-teal-400",
     titleClassName: "text-teal-400",
